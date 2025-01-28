@@ -1,12 +1,12 @@
 {
     "Routes": [
       {
-        "DownstreamPathTemplate": "/api/v1/prescriptions/{id}",
+        "DownstreamPathTemplate": "/api/v1/prescriptions/{prescriptionId}",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
           { "Host": "localhost", "Port": 5001 }
         ],
-        "UpstreamPathTemplate": "/api/v1/prescriptions/{id}",
+        "UpstreamPathTemplate": "/api/v1/prescriptions/{prescriptionId}",
         "UpstreamHttpMethod": [ "Get" ]
       },
       {
@@ -16,6 +16,33 @@
           { "Host": "localhost", "Port": 5001 }
         ],
         "UpstreamPathTemplate": "/api/v1/prescriptions",
+        "UpstreamHttpMethod": [ "Post" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/v1/notification/trigger",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5001 }
+        ],
+        "UpstreamPathTemplate": "/api/v1/notification/trigger",
+        "UpstreamHttpMethod": [ "Post" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/v1/Medicines/refresh",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5002 }
+        ],
+        "UpstreamPathTemplate": "/api/v1/Medicines/refresh",
+        "UpstreamHttpMethod": [ "Post" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/v1/Medicines/autocomplete",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5002 }
+        ],
+        "UpstreamPathTemplate": "/api/v1/Medicines/autocomplete",
         "UpstreamHttpMethod": [ "Post" ]
       }
     ],

@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "D4DG9V09UN0xv49cV6iGbDHStJkA2f4KmoWLkcLbJEw=",
+  "Source": "PrescriptionService",
+  "BasePath": "_content/PrescriptionService",
+  "Mode": "Default",
+  "ManifestType": "Publish",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

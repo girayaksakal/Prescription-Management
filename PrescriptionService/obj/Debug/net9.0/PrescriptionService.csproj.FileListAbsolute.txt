@@ -169,3 +169,6 @@
 /Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/bin/Debug/net9.0/Azure.Storage.Common.dll
+/Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/bin/Debug/net9.0/Azure.Storage.Queues.dll
+/Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/bin/Debug/net9.0/System.IO.Hashing.dll
