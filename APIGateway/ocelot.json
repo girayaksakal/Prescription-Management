@@ -1,0 +1,25 @@
+{
+    "Routes": [
+      {
+        "DownstreamPathTemplate": "/api/v1/prescriptions/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5001 }
+        ],
+        "UpstreamPathTemplate": "/api/v1/prescriptions/{id}",
+        "UpstreamHttpMethod": [ "Get" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/v1/prescriptions",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "localhost", "Port": 5001 }
+        ],
+        "UpstreamPathTemplate": "/api/v1/prescriptions",
+        "UpstreamHttpMethod": [ "Post" ]
+      }
+    ],
+    "GlobalConfiguration": {
+      "BaseUrl": "http://localhost:5000"
+    }
+  }
