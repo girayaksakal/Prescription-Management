@@ -1,0 +1,3 @@
+/Users/girayaksakal/Desktop/Prescription-Management/~/Users/girayaksakal/Downloads/PrescriptionManagement-Release/Shared.dll
+/Users/girayaksakal/Desktop/Prescription-Management/~/Users/girayaksakal/Downloads/PrescriptionManagement-Release/Shared.deps.json
+/Users/girayaksakal/Desktop/Prescription-Management/~/Users/girayaksakal/Downloads/PrescriptionManagement-Release/Shared.pdb
