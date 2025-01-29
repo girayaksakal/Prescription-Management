@@ -3,23 +3,31 @@ version: '3.8'
 services:
   medicine-service:
     image: prescriptionmgmt.azurecr.io/medicineservice:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
     networks:
       - api-network
 
   prescription-service:
     image: prescriptionmgmt.azurecr.io/prescriptionservice:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
     networks:
       - api-network
 
   api-gateway:
     image: prescriptionmgmt.azurecr.io/apigateway:latest
     ports:
-      - "80:80"
-    networks:
-      - api-network
+      - "80:80"  # Azure requires port 80 for HTTP
     environment:
+      - ASPNETCORE_ENVIRONMENT=Production
       - MedicineService__Url=http://medicine-service
       - PrescriptionService__Url=http://prescription-service
+    depends_on:
+      - medicine-service
+      - prescription-service
+    networks:
+      - api-network
 
 networks:
   api-network:
