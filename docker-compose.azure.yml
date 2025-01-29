@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  medicine-service:
+    image: prescriptionmgmt.azurecr.io/medicineservice:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80  # Explicit port declaration
+    networks:
+      - api-network
+    restart: unless-stopped  # Auto-recovery
+
+  prescription-service:
+    image: prescriptionmgmt.azurecr.io/prescriptionservice:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - api-network
+    restart: unless-stopped
+
+  api-gateway:
+    image: prescriptionmgmt.azurecr.io/apigateway:latest
+    ports:
+      - "80:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80  # Required for Azure
+      - MedicineService__Url=http://medicine-service
+      - PrescriptionService__Url=http://prescription-service
+    networks:
+      - api-network
+    depends_on:
+      - medicine-service
+      - prescription-service
+    healthcheck:  # Azure requires health checks
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+networks:
+  api-network:
+    driver: bridge

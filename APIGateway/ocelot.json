@@ -4,7 +4,7 @@
         "DownstreamPathTemplate": "/api/v1/prescriptions/{prescriptionId}",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 5001 }
+          { "Host": "prescription-service", "Port": 80 }
         ],
         "UpstreamPathTemplate": "/api/v1/prescriptions/{prescriptionId}",
         "UpstreamHttpMethod": [ "Get" ]
@@ -13,7 +13,7 @@
         "DownstreamPathTemplate": "/api/v1/prescriptions",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 5001 }
+          { "Host": "prescription-service", "Port": 80 }
         ],
         "UpstreamPathTemplate": "/api/v1/prescriptions",
         "UpstreamHttpMethod": [ "Post" ]
@@ -22,7 +22,7 @@
         "DownstreamPathTemplate": "/api/v1/notification/trigger",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 5001 }
+          { "Host": "prescription-service", "Port": 80 }
         ],
         "UpstreamPathTemplate": "/api/v1/notification/trigger",
         "UpstreamHttpMethod": [ "Post" ]
@@ -31,22 +31,22 @@
         "DownstreamPathTemplate": "/api/v1/Medicines/refresh",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 5002 }
+          { "Host": "medicine-service", "Port": 80 }
         ],
         "UpstreamPathTemplate": "/api/v1/Medicines/refresh",
         "UpstreamHttpMethod": [ "Post" ]
       },
       {
-        "DownstreamPathTemplate": "/api/v1/Medicines/autocomplete",
+        "DownstreamPathTemplate": "/api/v1/Medicines/autocomplete?term={term}",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
-          { "Host": "localhost", "Port": 5002 }
+          { "Host": "medicine-service", "Port": 80 }
         ],
-        "UpstreamPathTemplate": "/api/v1/Medicines/autocomplete",
-        "UpstreamHttpMethod": [ "Post" ]
+        "UpstreamPathTemplate": "/api/v1/Medicines/autocomplete?term={term}",
+        "UpstreamHttpMethod": [ "Get" ]
       }
     ],
     "GlobalConfiguration": {
-      "BaseUrl": "http://localhost:5000"
+      "BaseUrl": "http://api-gateway:80"
     }
   }

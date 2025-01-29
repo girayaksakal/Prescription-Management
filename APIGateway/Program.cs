@@ -12,4 +12,6 @@ var app = builder.Build();
 // Use Ocelot middleware
 app.UseOcelot().Wait();
 
+app.MapGet("/health", () => "Healthy");
+
 app.Run();
