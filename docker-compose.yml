@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  medicine-service:
+    build:
+      context: ./MedicineService
+      dockerfile: Dockerfile
+    networks:
+      - api-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+
+  prescription-service:
+    build:
+      context: ./PrescriptionService
+      dockerfile: Dockerfile
+    networks:
+      - api-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:80
+
+  api-gateway:
+    build:
+      context: ./APIGateway
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"  # Azure requires external port 80
+    networks:
+      - api-network
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - MedicineService__Url=http://medicine-service
+      - PrescriptionService__Url=http://prescription-service
+    depends_on:
+      - medicine-service
+      - prescription-service
+
+networks:
+  api-network:
+    driver: bridge

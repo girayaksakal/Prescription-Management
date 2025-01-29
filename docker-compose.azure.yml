@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  medicine-service:
+    image: prescriptionmgmt.azurecr.io/medicineservice:latest
+    networks:
+      - api-network
+
+  prescription-service:
+    image: prescriptionmgmt.azurecr.io/prescriptionservice:latest
+    networks:
+      - api-network
+
+  api-gateway:
+    image: prescriptionmgmt.azurecr.io/apigateway:latest
+    ports:
+      - "80:80"
+    networks:
+      - api-network
+    environment:
+      - MedicineService__Url=http://medicine-service
+      - PrescriptionService__Url=http://prescription-service
+
+networks:
+  api-network:
+    driver: bridge
