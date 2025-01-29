@@ -16,4 +16,5 @@ RUN dotnet publish "PrescriptionService.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=build /app/publish .
+ENV ASPNETCORE_URLS=http://+:80
 ENTRYPOINT ["dotnet", "PrescriptionService.dll"]

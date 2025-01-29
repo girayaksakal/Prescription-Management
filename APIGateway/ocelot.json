@@ -37,16 +37,16 @@
         "UpstreamHttpMethod": [ "Post" ]
       },
       {
-        "DownstreamPathTemplate": "/api/v1/Medicines/autocomplete",
+        "DownstreamPathTemplate": "/api/v1/Medicines/autocomplete?term={term}",
         "DownstreamScheme": "http",
         "DownstreamHostAndPorts": [
           { "Host": "medicine-service", "Port": 80 }
         ],
-        "UpstreamPathTemplate": "/api/v1/Medicines/autocomplete",
-        "UpstreamHttpMethod": [ "Post" ]
+        "UpstreamPathTemplate": "/api/v1/Medicines/autocomplete?term={term}",
+        "UpstreamHttpMethod": [ "Get" ]
       }
     ],
     "GlobalConfiguration": {
-      "BaseUrl": "http://0.0.0.0:5003"
+      "BaseUrl": "http://api-gateway:80"
     }
   }

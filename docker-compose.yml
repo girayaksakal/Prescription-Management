@@ -2,40 +2,43 @@ version: '3.8'
 
 services:
   medicine-service:
-    build:
-      context: ./MedicineService
-      dockerfile: Dockerfile
+    image: prescriptionmgmt.azurecr.io/medicineservice:latest
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Production
     networks:
       - api-network
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://+:80
+    restart: unless-stopped
 
   prescription-service:
-    build:
-      context: ./PrescriptionService
-      dockerfile: Dockerfile
+    image: prescriptionmgmt.azurecr.io/prescriptionservice:latest
+    environment:
+      - ASPNETCORE_URLS=http://+:80
+      - ASPNETCORE_ENVIRONMENT=Production
     networks:
       - api-network
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-      - ASPNETCORE_URLS=http://+:80
+    restart: unless-stopped
 
   api-gateway:
-    build:
-      context: ./APIGateway
-      dockerfile: Dockerfile
+    image: prescriptionmgmt.azurecr.io/apigateway:latest
     ports:
-      - "80:80"  # Azure requires external port 80
-    networks:
-      - api-network
+      - "80:80"  # Azure requires port 80 for HTTP
     environment:
+      - ASPNETCORE_URLS=http://+:80
       - ASPNETCORE_ENVIRONMENT=Production
       - MedicineService__Url=http://medicine-service
       - PrescriptionService__Url=http://prescription-service
     depends_on:
       - medicine-service
       - prescription-service
+    networks:
+      - api-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
 
 networks:
   api-network:
