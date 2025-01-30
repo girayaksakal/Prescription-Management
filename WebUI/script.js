@@ -61,10 +61,10 @@ async function createPrescription() {
         }
 
         const data = await response.json();
-        resultElement.textContent = JSON.stringify(data, null, 2);
+        document.getElementById('createPrescriptionResult').textContent = JSON.stringify(data, null, 2);
     } catch (error) {
         console.log('Error:', error);
-        resultElement.textContent = `Error: ${error.message}`;
+        document.getElementById('createPrescriptionResult').textContent = `Error: ${error.message}`;
     }
 }
 
@@ -78,22 +78,10 @@ async function searchMedicines() {
             }
         });
         const results = await response.json();
-        document.getElementById('medicineResults').innerHTML = results.JSON.stringify(results, null, 2);
+        document.getElementById('medicineResults').textContent = results;
     } catch (error) {
         console.error('Search error:', error);
     }
-}
-
-function displayResults(medicines) {
-    const container = document.getElementById('medicineResults');
-    container.innerHTML = medicines.map(medicine => `
-        <div class="card mb-2">
-            <div class="card-body">
-                <h6>${medicine.name}</h6>
-                <p class="mb-0 text-muted">${medicine.id}</p>
-            </div>
-        </div>
-    `).join('');
 }
 
 // Initial load check
