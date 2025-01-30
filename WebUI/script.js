@@ -21,8 +21,7 @@ async function searchMedicines() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ query })
+            }
         });
         const results = await response.json();
         displayResults(results);
