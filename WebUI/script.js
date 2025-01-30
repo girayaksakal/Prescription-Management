@@ -49,7 +49,7 @@ async function createPrescription() {
         patientTCID: patientTCID,
         medicines: medicines
     }
-    options.body = JSON.stringify({data});
+    options.body = JSON.stringify(data);
 
     try {
         const response = await fetch(url, options);
