@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/girayaksakal/Desktop/Prescription-Management/APIGateway/APIGateway.csproj": {}
+    "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/APIGateway/APIGateway.csproj": {}
   },
   "projects": {
-    "/Users/girayaksakal/Desktop/Prescription-Management/APIGateway/APIGateway.csproj": {
+    "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/APIGateway/APIGateway.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/girayaksakal/Desktop/Prescription-Management/APIGateway/APIGateway.csproj",
+        "projectUniqueName": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/APIGateway/APIGateway.csproj",
         "projectName": "APIGateway",
-        "projectPath": "/Users/girayaksakal/Desktop/Prescription-Management/APIGateway/APIGateway.csproj",
+        "projectPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/APIGateway/APIGateway.csproj",
         "packagesPath": "/Users/girayaksakal/.nuget/packages/",
-        "outputPath": "/Users/girayaksakal/Desktop/Prescription-Management/APIGateway/obj/",
+        "outputPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/APIGateway/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/girayaksakal/.nuget/NuGet/NuGet.Config"

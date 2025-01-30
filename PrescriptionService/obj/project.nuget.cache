@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b9/bZEjaEmA=",
+  "dgSpecHash": "c2r5sefh+WE=",
   "success": true,
-  "projectFilePath": "/Users/girayaksakal/Desktop/Prescription-Management/PrescriptionService/PrescriptionService.csproj",
+  "projectFilePath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/PrescriptionService/PrescriptionService.csproj",
   "expectedPackageFiles": [
     "/Users/girayaksakal/.nuget/packages/azure.core/1.44.1/azure.core.1.44.1.nupkg.sha512",
     "/Users/girayaksakal/.nuget/packages/azure.identity/1.11.4/azure.identity.1.11.4.nupkg.sha512",
