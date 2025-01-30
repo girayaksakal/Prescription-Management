@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/girayaksakal/Desktop/Prescription-Management/Shared/Shared.csproj",
+      "projectUniqueName": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/Shared/Shared.csproj",
       "projectName": "Shared",
-      "projectPath": "/Users/girayaksakal/Desktop/Prescription-Management/Shared/Shared.csproj",
+      "projectPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/Shared/Shared.csproj",
       "packagesPath": "/Users/girayaksakal/.nuget/packages/",
-      "outputPath": "/Users/girayaksakal/Desktop/Prescription-Management/Shared/obj/",
+      "outputPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/Shared/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/girayaksakal/.nuget/NuGet/NuGet.Config"

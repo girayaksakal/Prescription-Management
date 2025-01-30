@@ -4047,11 +4047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/girayaksakal/Desktop/Prescription-Management/MedicineService/MedicineService.csproj",
+      "projectUniqueName": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/MedicineService/MedicineService.csproj",
       "projectName": "MedicineService",
-      "projectPath": "/Users/girayaksakal/Desktop/Prescription-Management/MedicineService/MedicineService.csproj",
+      "projectPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/MedicineService/MedicineService.csproj",
       "packagesPath": "/Users/girayaksakal/.nuget/packages/",
-      "outputPath": "/Users/girayaksakal/Desktop/Prescription-Management/MedicineService/obj/",
+      "outputPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/MedicineService/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/girayaksakal/.nuget/NuGet/NuGet.Config"
@@ -4066,8 +4066,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/girayaksakal/Desktop/Prescription-Management/Shared/Shared.csproj": {
-              "projectPath": "/Users/girayaksakal/Desktop/Prescription-Management/Shared/Shared.csproj"
+            "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/Shared/Shared.csproj": {
+              "projectPath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/Shared/Shared.csproj"
             }
           }
         }

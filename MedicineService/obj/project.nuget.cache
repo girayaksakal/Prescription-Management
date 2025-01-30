@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oUhbD6DuCdQ=",
+  "dgSpecHash": "1czTGxmei3s=",
   "success": true,
-  "projectFilePath": "/Users/girayaksakal/Desktop/Prescription-Management/MedicineService/MedicineService.csproj",
+  "projectFilePath": "/Users/girayaksakal/Desktop/PrescriptionManager/Prescription-Management/MedicineService/MedicineService.csproj",
   "expectedPackageFiles": [
     "/Users/girayaksakal/.nuget/packages/epplus/7.5.3/epplus.7.5.3.nupkg.sha512",
     "/Users/girayaksakal/.nuget/packages/epplus.interfaces/7.5.0/epplus.interfaces.7.5.0.nupkg.sha512",

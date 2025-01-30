@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prescription Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Prescription System</h1>
+
+        <!-- CreatePrescription -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Create Prescription</h5>
+                <div id="medicine-entry" class="input-group">
+                    <input type="text" id="medicineName" placeholder="Medicine Name" class="form-control">
+                    <input type="text" id="medicineDosage" placeholder="Medicine Dosage" class="form-control">
+                </div>
+                <input type="text" id="patientTCID" placeholder="Patient TC No" class="form-control mt-2">
+                <button onclick="addMedicine()" class="btn btn-primary mt-2">Add more medicines</button>
+                <button onclick="createPrescription()" class="btn btn-primary mt-2">Create Prescription</button>
+                <h4>Result</h4>
+                <pre id="createPrescriptionResult" class="mt-2"></pre>
+            </div>
+        </div>
+        <script>
+            function addMedicine() {
+                const container = document.getElementById('medicine-entry');
+                const div = document.createElement('div');
+                div.className = 'input-group';
+                div.innerHTML = `
+                    <input type="text" id="medicineName" placeholder="Medicine Name" class="form-control">
+                    <input type="text" id="medicineDosage" placeholder="Medicine Dosage" class="form-control">
+                    <button onclick="this.parentElement.remove()" class="btn btn-primary">Remove</button>
+                `;
+                container.appendChild(div);
+            }
+        </script>
+
+        <!-- GetPrescription -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Get Prescription</h5>
+                <div class="input-group">
+                    <input type="text" id="prescriptionId" placeholder="Enter prescription ID" class="form-control">
+                    <button onclick="getPrescription()" class="btn btn-primary">Get Prescription</button>
+                </div>
+                <pre id="prescriptionId" class="mt-2">Prescription ID</pre>
+                <pre id="prescriptionResult" class="mt-2"></pre>
+            </div>
+        </div>
+
+        <!-- Medicine Search Section -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Medicine Search</h5>
+                <div class="input-group">
+                    <input type="text" id="medicineSearch" placeholder="Search medicines..." class="form-control" oninput="searchMedicines()">
+                    <button onclick="searchMedicines()" class="btn btn-primary">Search</button>
+                </div>
+                <div id="medicineResults" class="mt-2"></div>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Manually fetch Medicine List (Fetches automatically at 22:00 on Sundays)</h5>
+                <button onclick="" class="btn btn-primary">Fetch again</button>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Manually send notifications (Automatically sends at 01:00 everyday)</h5>
+                <button onclick="" class="btn btn-primary">Override</button>
+            </div>
+        </div>
+
+        <!-- System Status -->
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>System Status</h5>
+                <div id="statusIndicator" class="text-success">● Operational</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
