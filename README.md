@@ -24,7 +24,16 @@ Link: https://zealous-water-0148f0803.4.azurestaticapps.net/index.html
 - SearchMedicine (GET): https://prescriptionmanager.azurewebsites.net/api/v1/medicines/autocomplete?term={query}
 
 ## Youtube Video
+https://youtu.be/d4wWcyISQfs
 
 ## ER Diagram
 ![ER-Diagram](https://github.com/user-attachments/assets/ca757be1-826d-45dd-bad4-27b452afdb4f)
+
+## Used External Services
+- Azure Web Plan
+- Azure Web Apps
+- Azure Static Web Apps
+- Azure Container Repository
+- Azure SQL Database
+
 
