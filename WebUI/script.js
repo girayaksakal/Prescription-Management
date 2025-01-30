@@ -15,45 +15,6 @@ async function getPrescription() {
     }
 }
 
-async function searchMedicinesv2() {
-    const query = document.getElementById('medicineSearch').value.trim();
-    if (query.length < 2) return; // Prevent unnecessary API calls
-
-    try {
-        const response = await fetch(`${API_BASE}/api/v1/medicines/autocomplete?term=${query}`);
-        if (!response.ok) throw new Error('Failed to fetch');
-
-        const result = await response.json();
-        const medicines = result.medicationNames || []; // Extract medicine names array
-        displaySearchResults(medicines);
-    } catch (error) {
-        console.error('Error fetching medicines:', error);
-    }
-}
-
-function displaySearchResults(medicines) {
-    const resultsContainer = document.getElementById('medicineResults');
-    resultsContainer.innerHTML = ''; // Clear previous results
-
-    if (medicines.length === 0) {
-        resultsContainer.innerHTML = '<p>No medicines found.</p>';
-        return;
-    }
-
-    medicines.forEach(medicineName => {
-        const item = document.createElement('div');
-        item.textContent = medicineName;
-        item.classList.add('search-item');
-        item.onclick = () => selectMedicine(medicineName);
-        resultsContainer.appendChild(item);
-    });
-}
-
-function selectMedicine(name) {
-    document.getElementById('medicineSearch').value = name;
-    document.getElementById('searchResults').innerHTML = ''; // Clear results after selection
-}
-
 async function createPrescription() {
     let url ="https://prescriptionmanager.azurewebsites.net/api/v1/prescriptions";
     let options = {
@@ -89,7 +50,9 @@ async function createPrescription() {
         const response = await fetch(url, options);
 
         if (!response.ok) {
-            throw new Error('Failed to create prescription: ${response.statusText}');
+            response.json().then(data => {
+                throw new Error(data.message);
+            });
         }
 
         const data = await response.json();
