@@ -32,7 +32,12 @@ async function createPrescription() {
         const medicineDosage = entry.querySelector("#medicineDosage").value;
 
         if (medicineName && medicineDosage) {
-            medicines.push({ medicineName, medicineDosage });
+            medicines.push(
+                {
+                    medicineName: medicineName, 
+                    dosage: medicineDosage 
+                }
+            );
         }
     });
 
@@ -40,11 +45,11 @@ async function createPrescription() {
         alert('Please fill out all fields');
         return;
     }
-
-    options.body = JSON.stringify({
-        patientTCID,
-        medicines
-    });
+    let data = {
+        patientTCID: patientTCID,
+        medicines: medicines
+    }
+    options.body = JSON.stringify({data});
 
     try {
         const response = await fetch(url, options);
