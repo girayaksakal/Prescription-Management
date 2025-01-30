@@ -32,7 +32,7 @@ async function searchMedicinesv2() {
 }
 
 function displaySearchResults(medicines) {
-    const resultsContainer = document.getElementById('searchResults');
+    const resultsContainer = document.getElementById('medicineResults');
     resultsContainer.innerHTML = ''; // Clear previous results
 
     if (medicines.length === 0) {
@@ -67,8 +67,8 @@ async function createPrescription() {
     const medicines = [];
 
     document.querySelectorAll('.medicine-entry').forEach(entry => {
-        const medicineName = entry.querySelector('.medicine-name').value.trim();
-        const medicineDosage = entry.querySelector('.medicine-dosage').value.trim();
+        const medicineName = entry.querySelector('.medicineName').value.trim();
+        const medicineDosage = entry.querySelector('.medicineDosage').value.trim();
 
         if (medicineName && medicineDosage) {
             medicines.push({ medicineName, medicineDosage });
