@@ -55,7 +55,7 @@ function selectMedicine(name) {
 }
 
 async function createPrescription() {
-    let url = '${API_BASE}/api/v1/prescriptions';
+    let url ="https://prescriptionmanager.azurewebsites.net/api/v1/prescriptions";
     let options = {
         method: 'POST',
         headers: {
