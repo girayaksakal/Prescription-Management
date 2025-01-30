@@ -10,16 +10,33 @@
         <h1 class="mt-4">Prescription System</h1>
 
         <!-- CreatePrescription -->
-        <div id="medicinesContainer">
-            <h4>Medicines</h4>
-            <div class="medicine-entry">
-                <input type="text" class="medicine-name" placeholder="Medicine Name">
-                <input type="text" class="medicine-dosage" placeholder="Dosage">
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Create Prescription</h5>
+                <div id="medicine-entry" class="input-group">
+                    <input type="text" id="medicineName" placeholder="Medicine Name" class="form-control">
+                    <input type="text" id="medicineDosage" placeholder="Medicine Dosage" class="form-control">
+                </div>
+                <input type="text" id="patientTCID" placeholder="Patient TC No" class="form-control mt-2">
+                <button onclick="addMedicine()" class="btn btn-primary mt-2">Add more medicines</button>
+                <button onclick="createPrescription()" class="btn btn-primary mt-2">Create Prescription</button>
+                <h4>Result</h4>
+                <pre id="createPrescriptionResult" class="mt-2"></pre>
             </div>
         </div>
-        <button onclick="addMedicine()">Add Another Medicine</button><br>
-        <button onclick="getOrCreatePrescription('POST')">Submit Prescription</button>
-
+        <script>
+            function addMedicine() {
+                const container = document.getElementById('medicine-entry');
+                const div = document.createElement('div');
+                div.className = 'input-group';
+                div.innerHTML = `
+                    <input type="text" id="medicineName" placeholder="Medicine Name" class="form-control">
+                    <input type="text" id="medicineDosage" placeholder="Medicine Dosage" class="form-control">
+                    <button onclick="this.parentElement.remove()" class="btn btn-primary">Remove</button>
+                `;
+                container.appendChild(div);
+            }
+        </script>
 
         <!-- GetPrescription -->
         <div class="card mt-4">
@@ -33,29 +50,13 @@
                 <pre id="prescriptionResult" class="mt-2"></pre>
             </div>
         </div>
-        <h2>Result</h2>
-        <pre id="prescriptionResult"></pre>
-        <script>
-            function addMedicine() {
-                const container = document.getElementById('medicinesContainer');
-                const div = document.createElement('div');
-                div.className = 'medicine-entry';
-                div.innerHTML = `
-                    <input type="text" class="medicine-name" placeholder="Medicine Name">
-                    <input type="text" class="medicine-dosage" placeholder="Dosage">
-                    <button onclick="this.parentElement.remove()">Remove</button>
-                `;
-                container.appendChild(div);
-            }
-        </script>
-    
 
         <!-- Medicine Search Section -->
         <div class="card mt-4">
             <div class="card-body">
                 <h5>Medicine Search</h5>
                 <div class="input-group">
-                    <input type="text" id="medicineSearch" placeholder="Search medicines..." class="form-control">
+                    <input type="text" id="medicineSearch" placeholder="Search medicines..." class="form-control" oninput="searchMedicinesv2()">
                     <button onclick="searchMedicines()" class="btn btn-primary">Search</button>
                 </div>
                 <div id="medicineResults" class="mt-2"></div>
