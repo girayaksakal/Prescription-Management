@@ -1,9 +1,11 @@
-const API_BASE = "https://prescriptionmanager.azurewebsites.net";
+const API_BASE = window.location.origin;
 
 async function getPrescription() {
     const id = document.getElementById('prescriptionId').value;
     try {
-        const response = await fetch(`${API_BASE}/api/v1/prescriptions/${id}`);
+        const response = await fetch(`${API_BASE}/api/v1/prescriptions/${id}`, {
+            method: 'GET'
+        });
         const data = await response.json();
         document.getElementById('prescriptionResult').textContent = 
             JSON.stringify(data, null, 2);
@@ -15,8 +17,8 @@ async function getPrescription() {
 async function searchMedicines() {
     const query = document.getElementById('medicineSearch').value;
     try {
-        const response = await fetch(`${API_BASE}/api/v1/medicines/autocomplete`, {
-            method: 'POST',
+        const response = await fetch(`${API_BASE}/api/v1/medicines/autocomplete?term=${query}`, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -48,9 +50,16 @@ async function checkHealthStatus() {
     try {
         await fetch(`${API_BASE}/health`);
         document.getElementById('statusIndicator').className = 'text-success';
-        document.getElementById('statusIndicator').textContent = '● All Systems Operational';
+        document.getElementById('statusIndicator').textContent = 'All Systems Operational';
     } catch {
         document.getElementById('statusIndicator').className = 'text-danger';
-        document.getElementById('statusIndicator').textContent = '● System Outage';
+        document.getElementById('statusIndicator').textContent = 'System Outage';
+    }
+}
+
+class PrescriptionDetails {
+    constructor( medicineNames, medicineDosages) {
+        this.medicineNames = medicineNames;
+        this.medicineDosages = medicineDosages;
     }
 }
