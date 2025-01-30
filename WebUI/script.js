@@ -63,12 +63,12 @@ async function createPrescription() {
         }
     };
 
-    const patientTCID = document.getElementById('patientTCID').value.trim();
+    const patientTCID = document.getElementById('patientTCID').value;
     const medicines = [];
 
-    document.querySelectorAll('.medicine-entry').forEach(entry => {
-        const medicineName = entry.querySelector('.medicineName').value.trim();
-        const medicineDosage = entry.querySelector('.medicineDosage').value.trim();
+    document.querySelectorAll("#medicine-entry").forEach(entry => {
+        const medicineName = entry.querySelector("#medicineName").value;
+        const medicineDosage = entry.querySelector("#medicineDosage").value;
 
         if (medicineName && medicineDosage) {
             medicines.push({ medicineName, medicineDosage });
