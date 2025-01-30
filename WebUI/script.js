@@ -1,4 +1,4 @@
-const API_BASE = window.location.origin;
+const API_BASE = "https://prescriptionmanager.azurewebsites.net";
 
 async function getPrescription() {
     const id = document.getElementById('prescriptionId').value;
