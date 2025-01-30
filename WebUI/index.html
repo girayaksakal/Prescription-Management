@@ -8,11 +8,20 @@
 <body>
     <div class="container">
         <h1 class="mt-4">Prescription System</h1>
-        
+
+        <!-- CreatePrescription -->
+        <div id="medicinesContainer">
+            <h4>Medicines</h4>
+            <div class="medicine-entry">
+                <input type="text" class="medicine-name" placeholder="Medicine Name">
+                <input type="text" class="medicine-dosage" placeholder="Dosage">
+            </div>
+        </div>
+        <button onclick="addMedicine()">Add Another Medicine</button><br>
         <!-- GetPrescription -->
         <div class="card mt-4">
             <div class="card-body">
-                <h5>GetPrescription</h5>
+                <h5>Get Prescription</h5>
                 <div class="input-group">
                     <input type="text" id="prescriptionId" placeholder="Enter prescription ID" class="form-control">
                     <button onclick="getPrescription()" class="btn btn-primary">Get Prescription</button>
@@ -21,6 +30,22 @@
                 <pre id="prescriptionResult" class="mt-2"></pre>
             </div>
         </div>
+        <h2>Result</h2>
+        <pre id="prescriptionResult"></pre>
+        <script>
+            function addMedicine() {
+                const container = document.getElementById('medicinesContainer');
+                const div = document.createElement('div');
+                div.className = 'medicine-entry';
+                div.innerHTML = `
+                    <input type="text" class="medicine-name" placeholder="Medicine Name">
+                    <input type="text" class="medicine-dosage" placeholder="Dosage">
+                    <button onclick="this.parentElement.remove()">Remove</button>
+                `;
+                container.appendChild(div);
+            }
+        </script>
+    
 
         <!-- Medicine Search Section -->
         <div class="card mt-4">

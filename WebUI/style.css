@@ -24,3 +24,9 @@ pre {
     font-size: 1.2em;
     font-weight: bold;
 }
+
+.medicine-entry {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 5px;
+}

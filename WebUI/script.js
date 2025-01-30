@@ -10,7 +10,54 @@ async function getPrescription() {
         document.getElementById('prescriptionResult').textContent = 
             JSON.stringify(data, null, 2);
     } catch (error) {
-        console.error('Fetch error:', error);
+        document.getElementById('prescriptionResult').textContent = 
+            `Error: ${error.message}`;
+    }
+}
+
+async function createPrescription() {
+    let url = '${API_BASE}/api/v1/prescriptions';
+    let options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const patientTCID = document.getElementById('patientTCID').value.trim();
+    const medicines = [];
+
+    document.querySelectorAll('.medicine-entry').forEach(entry => {
+        const medicineName = entry.querySelector('.medicine-name').value.trim();
+        const medicineDosage = entry.querySelector('.medicine-dosage').value.trim();
+
+        if (medicineName && medicineDosage) {
+            medicines.push({ medicineName, medicineDosage });
+        }
+    });
+
+    if (!patientTCID || medicines.length === 0) {
+        alert('Please fill out all fields');
+        return;
+    }
+
+    options.body = JSON.stringify({
+        patientTCID,
+        medicines
+    });
+
+    try {
+        const response = await fetch(url, options);
+
+        if (!response.ok) {
+            throw new Error('Failed to create prescription: ${response.statusText}');
+        }
+
+        const data = await response.json();
+        resultElement.textContent = JSON.stringify(data, null, 2);
+    } catch (error) {
+        console.log('Error:', error);
+        resultElement.textContent = `Error: ${error.message}`;
     }
 }
 
