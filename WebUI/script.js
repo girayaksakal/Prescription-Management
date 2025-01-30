@@ -110,7 +110,7 @@ async function searchMedicines() {
             }
         });
         const results = await response.json();
-        document.getElementById('medicineResults').innerHTML = results.JSON.stringify(data, null, 2);
+        document.getElementById('medicineResults').innerHTML = results.JSON.stringify(results, null, 2);
     } catch (error) {
         console.error('Search error:', error);
     }
