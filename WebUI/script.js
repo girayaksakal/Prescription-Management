@@ -1,4 +1,4 @@
-const API_BASE = window.location.origin;
+const API_BASE = "https://zealous-water-0148f0803.4.azurestaticapps.net";
 
 async function getPrescription() {
     const id = document.getElementById('prescriptionId').value;
